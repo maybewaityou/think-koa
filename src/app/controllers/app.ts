@@ -9,7 +9,7 @@ import * as Koa from 'koa';
 
 export default {
 
-  async index(ctx: Koa.Context, next: any) {
+  async index(ctx: Koa.Context, next: () => Promise<any>) {
     await ctx.render('index', {
       title: 'Hello Koa 2 !',
     });
