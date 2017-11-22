@@ -5,11 +5,13 @@
  * description:
  *
  */
-
+import * as Koa from 'koa';
 export default {
 
-  async index(ctx: any, next: any) {
-    ctx.body = 'Hello Koa ~';
+  async index(ctx: Koa.Context, next: any) {
+    await ctx.render('index', {
+      title: 'Hello Koa 2 !',
+    });
     await next();
   },
 
