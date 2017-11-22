@@ -32,12 +32,12 @@ app.use(bodyParser({
   enableTypes: ['json', 'form', 'text'],
 }));
 app.use(json());
-// app.use(staticRes(__dirname + '/public'));
-//
-// // template
-// app.use(views(__dirname + '/views', {
-//   extension: 'pug',
-// }));
+app.use(staticRes(path.resolve(__dirname, '../public')));
+
+// template
+app.use(views(path.resolve(__dirname, '../views'), {
+  extension: 'pug',
+}));
 
 // logger
 app.use(async (ctx: Koa.Context, next: () => Promise<any>) => {
