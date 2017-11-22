@@ -32,13 +32,12 @@ app.use(bodyParser({
   enableTypes: ['json', 'form', 'text'],
 }));
 app.use(json());
+// resource
 app.use(staticRes(path.resolve(__dirname, '../public')));
-
 // template
 app.use(views(path.resolve(__dirname, '../views'), {
   extension: 'pug',
 }));
-
 // logger
 app.use(async (ctx: Koa.Context, next: () => Promise<any>) => {
   const start = new Date();
@@ -46,7 +45,6 @@ app.use(async (ctx: Koa.Context, next: () => Promise<any>) => {
   const ms = new Date().getMilliseconds() - start.getMilliseconds();
   console.log(`${ctx.method} ${ctx.url} - ${ms}ms`);
 });
-
 // routes
 app.use(router.routes());
 app.use(router.allowedMethods());
