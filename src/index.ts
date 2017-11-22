@@ -7,7 +7,7 @@
  */
 import * as Koa from 'koa';
 import * as bodyParser from 'koa-bodyparser';
-// import cors from 'koa-cors';
+// import * as Cors from 'koa-cors';
 import * as json from 'koa-json';
 import * as logger from 'koa-logger';
 // import errorHandler from 'koa-onerror';
@@ -15,8 +15,8 @@ import * as session from 'koa-session';
 import * as staticRes from 'koa-static';
 import * as views from 'koa-views';
 import router from './config/routes';
+import Cors from './middleware/cors';
 
-// 初始化实例
 const app = new Koa();
 app.keys = ['think-koa'];
 
@@ -26,7 +26,7 @@ app.keys = ['think-koa'];
 // middlewares
 app.use(logger());
 app.use(session(app));
-// app.use(cors());
+app.use(Cors());
 app.use(bodyParser({
   enableTypes: ['json', 'form', 'text'],
 }));
