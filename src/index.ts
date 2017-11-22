@@ -9,18 +9,20 @@ import * as Koa from 'koa';
 import * as bodyParser from 'koa-bodyparser';
 import * as json from 'koa-json';
 import * as logger from 'koa-logger';
-// import errorHandler from 'koa-onerror';
 import * as session from 'koa-session';
 import * as staticRes from 'koa-static';
 import * as views from 'koa-views';
+import * as path from 'path';
+
 import router from './config/routes';
 import cors from './middleware/cors';
+import errorHandler from './middleware/onerror';
 
 const app = new Koa();
 app.keys = ['think-koa'];
 
 // error handler
-// errorHandler(app);
+errorHandler(app);
 
 // middlewares
 app.use(logger());
