@@ -19,5 +19,18 @@
   "bugs": {
     "url": "https://github.com/maybewaityou/think-koa/issues"
   },
-  "homepage": "https://github.com/maybewaityou/think-koa#readme"
+  "homepage": "https://github.com/maybewaityou/think-koa#readme",
+  "dependencies": {
+    "koa": "^2.4.1",
+    "koa-bodyparser": "^4.2.0",
+    "koa-cors": "0.0.16",
+    "koa-json": "^2.0.2",
+    "koa-logger": "^3.1.0",
+    "koa-onerror": "^4.0.0",
+    "koa-router": "^7.3.0",
+    "koa-session": "^5.5.1",
+    "koa-static": "^4.0.2",
+    "koa-views": "^6.1.2",
+    "pug": "^2.0.0-rc.4"
+  }
 }
