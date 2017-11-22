@@ -6,14 +6,14 @@
  *
  */
 // import graphqlHTTP from 'koa-graphql';
-import bodyParser from 'koa-bodyparser';
-import Router from 'koa-router';
+import * as bodyParser from 'koa-bodyparser';
+import * as Router from 'koa-router';
 // import { graphqlKoa, graphiqlKoa } from 'apollo-server-koa';
 
 import App from '../app/controllers/app';
 
 const router = new Router({
-  prefix: '/pages',
+  prefix: '/server',
 });
 
 // // GraphQL
@@ -25,4 +25,4 @@ const router = new Router({
 // RESTful
 router.get('/index', App.index);
 
-module.exports = router;
+export default router;

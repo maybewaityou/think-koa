@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "tsc -w",
-    "start": "nodemon --exec node build/index.js"
+    "start": "nodemon --watch 'src/**/*' -e ts,tsx --exec 'ts-node' ./src/index.ts"
   },
   "repository": {
     "type": "git",
@@ -49,6 +49,7 @@
     "enzyme": "^3.2.0",
     "mocha": "^4.0.1",
     "nodemon": "^1.12.1",
+    "ts-node": "^3.3.0",
     "tslint": "^5.8.0",
     "typescript": "^2.6.1"
   }

@@ -5,20 +5,19 @@
  * description:
  *
  */
-import koa from 'koa';
-import bodyParser from 'koa-bodyparser';
+import * as Koa from 'koa';
+import * as bodyParser from 'koa-bodyparser';
 // import cors from 'koa-cors';
-import json from 'koa-json';
-import logger from 'koa-logger';
+import * as json from 'koa-json';
+import * as logger from 'koa-logger';
 // import errorHandler from 'koa-onerror';
-import session from 'koa-session';
-import staticRes from 'koa-static';
-import views from 'koa-views';
-
-// const router = require('./config/routes');
+import * as session from 'koa-session';
+import * as staticRes from 'koa-static';
+import * as views from 'koa-views';
+import router from './config/routes';
 
 // 初始化实例
-const app = new koa();
+const app = new Koa();
 app.keys = ['think-koa'];
 
 // error handler
@@ -40,14 +39,15 @@ app.use(json());
 // }));
 
 // logger
-// app.use(async (ctx, next) => {
-//   const start = new Date();
-//   await next();
-//   const ms = new Date() - start;
-//   console.log(`${ctx.method} ${ctx.url} - ${ms}ms`);
-// });
+app.use(async (ctx: Koa.Context, next: () => Promise<any>) => {
+  const start = new Date();
+  await next();
+  const ms = new Date().getMilliseconds() - start.getMilliseconds();
+  console.log(`${ctx.method} ${ctx.url} - ${ms}ms`);
+});
 
 // routes
-// app.use(router.routes(), router.allowedMethods());
+app.use(router.routes());
+app.use(router.allowedMethods());
 
 app.listen(9999);
