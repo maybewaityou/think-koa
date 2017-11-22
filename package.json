@@ -1,0 +1,23 @@
+{
+  "name": "think-koa",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maybewaityou/think-koa.git"
+  },
+  "keywords": [
+    "koa",
+    "think"
+  ],
+  "author": "MeePwn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maybewaityou/think-koa/issues"
+  },
+  "homepage": "https://github.com/maybewaityou/think-koa#readme"
+}
