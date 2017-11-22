@@ -5,8 +5,8 @@
  * description:
  *
  */
-// import graphqlHTTP from 'koa-graphql';
 import * as bodyParser from 'koa-bodyparser';
+// import graphqlHTTP from 'koa-graphql';
 import * as Router from 'koa-router';
 
 import App from '../app/controllers/app';
