@@ -8,7 +8,6 @@
 // import graphqlHTTP from 'koa-graphql';
 import * as bodyParser from 'koa-bodyparser';
 import * as Router from 'koa-router';
-// import { graphqlKoa, graphiqlKoa } from 'apollo-server-koa';
 
 import App from '../app/controllers/app';
 
