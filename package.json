@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "tsc -w",
+    "start": "nodemon --exec node build/index.js"
   },
   "repository": {
     "type": "git",
@@ -36,6 +38,14 @@
     "rxjs": "^5.5.2"
   },
   "devDependencies": {
+    "@types/koa": "^2.0.40",
+    "@types/koa-bodyparser": "^3.0.26",
+    "@types/koa-json": "^2.0.18",
+    "@types/koa-logger": "^2.0.3",
+    "@types/koa-router": "^7.0.25",
+    "@types/koa-session": "^3.0.6",
+    "@types/koa-static": "^3.0.2",
+    "@types/koa-views": "^2.0.3",
     "enzyme": "^3.2.0",
     "mocha": "^4.0.1",
     "nodemon": "^1.12.1",
