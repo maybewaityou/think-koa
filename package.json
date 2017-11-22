@@ -32,5 +32,11 @@
     "koa-static": "^4.0.2",
     "koa-views": "^6.1.2",
     "pug": "^2.0.0-rc.4"
+  },
+  "devDependencies": {
+    "enzyme": "^3.2.0",
+    "mocha": "^4.0.1",
+    "tslint": "^5.8.0",
+    "typescript": "^2.6.1"
   }
 }

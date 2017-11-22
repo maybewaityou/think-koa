@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "rxjs": ["node_modules/rxjs/Rx.d.ts"],
+      "mario-utilities": ["node_modules/mario-utilities/index.d.ts"]
+    },
+    "target": "esnext",
+    "module": "esnext",
+    "jsx": "react-native",
+    "outDir": "./build/",
+    "rootDir": "src",
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+    "experimentalDecorators": true,
+    "preserveConstEnums": true,
+    "allowJs": false,
+    "sourceMap": false,
+    "removeComments": true,
+    "pretty": true,
+    "skipLibCheck": true,
+    "lib": [
+      "es5",
+      "es2015.core",
+      "es2015.iterable",
+      "es2015.collection",
+      "es2015.promise",
+      "dom"
+    ]
+  },
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules",
+    "./src/declare"
+  ],
+  "compileOnSave": false
+}
