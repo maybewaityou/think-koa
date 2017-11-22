@@ -6,6 +6,7 @@
  *
  */
 import * as Koa from 'koa';
+
 /**
  * CORS middleware
  *
