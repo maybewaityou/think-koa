@@ -6,6 +6,7 @@
  *
  */
 import * as Koa from 'koa';
+
 export default {
 
   async index(ctx: Koa.Context, next: any) {
