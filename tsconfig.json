@@ -7,7 +7,7 @@
     },
     "target": "esnext",
     "module": "commonjs",
-    "jsx": "react-native",
+    "jsx": "react",
     "outDir": "./build/",
     "rootDir": "src",
     "allowSyntheticDefaultImports": true,
