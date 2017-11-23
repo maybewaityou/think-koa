@@ -1,0 +1,115 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "node": true
+  },
+  "globals": {
+  },
+  "extends": [
+    "eslint:recommended"
+  ],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "jsx": true
+    },
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "react-native",
+    "immutable",
+    "import"
+  ],
+  "rules": {
+    "indent": [
+      2,
+      2
+    ],
+    "linebreak-style": [
+      2,
+      "unix"
+    ],
+    "quotes": [
+      2,
+      "single"
+    ],
+    "semi": [
+      2,
+      "always"
+    ],
+    "eqeqeq": [
+      2,
+      "allow-null"
+    ],
+    "no-console": 0,
+    "no-eq-null": 2,
+    "no-eval": 2,
+    "no-fallthrough": 2,
+    "no-implicit-globals": 2,
+    "no-implied-eval": 2,
+    "no-invalid-this": 0,
+    "no-new-func": 2,
+    "no-new-wrappers": 2,
+    "no-redeclare": [
+      2,
+      {
+        "builtinGlobals": true
+      }
+    ],
+    "no-script-url": 2,
+    "no-self-assign": 2,
+    "no-self-compare": 2,
+    "no-sequences": 2,
+    "no-throw-literal": 2,
+    "no-unmodified-loop-condition": 2,
+    "no-useless-call": 2,
+    "no-empty-pattern": 2,
+    "no-void": 2,
+    "no-warning-comments": [
+      2,
+      {
+        "terms": [
+          "todo",
+          "fixme",
+          "any other term"
+        ],
+        "location": "anywhere"
+      }
+    ],
+    "no-with": 2,
+    "no-undef": 2,
+    "no-undef-init": 2,
+    "no-undefined": 0,
+    "no-unused-vars": 0,
+    "global-require": 0,
+    "no-mixed-requires": 2,
+    "no-new-require": 2,
+    "strict": 2,
+    "default-case": 2,
+    "camelcase": 0,
+    "brace-style": [
+      2,
+      "1tbs",
+      {
+        "allowSingleLine": true
+      }
+    ],
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "import/no-unresolved": [
+      0,
+      {
+        "commonjs": true,
+        "amd": true
+      }
+    ],
+    "import/named": 2,
+    "import/namespace": 2,
+    "import/default": 0,
+    "import/export": 2
+  }
+}
