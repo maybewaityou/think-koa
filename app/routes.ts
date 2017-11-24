@@ -23,8 +23,9 @@ const router = new Router({
 // }));
 
 // RESTful
-router.get('/index', App.index);
-router.get('/checkForUpdates', App.checkForUpdates);
-router.post('/download', Download.download);
+router
+  .get('/index', App.index)
+  .get('/checkForUpdates', App.checkForUpdates)
+  .post('/download', Download.download);
 
 export default router;
