@@ -10,6 +10,7 @@ import * as bodyParser from 'koa-bodyparser';
 import * as Router from 'koa-router';
 
 import App from '../app/controllers/app';
+import Download from '../app/controllers/download';
 
 const router = new Router({
   prefix: '/server',
@@ -24,5 +25,6 @@ const router = new Router({
 // RESTful
 router.get('/index', App.index);
 router.get('/checkForUpdates', App.checkForUpdates);
+router.get('/download', Download.download);
 
 export default router;
