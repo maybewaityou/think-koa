@@ -12,10 +12,14 @@ import * as path from 'path';
 export default {
 
   async download(ctx: Koa.Context, next: () => Promise<any>) {
-    const fileName = 'test.json';
+    const fileName = ctx.request.body.fileName;
     ctx.attachment(fileName);
-    await send(ctx, fileName, { root: path.resolve('public') });
-    await next();
+    try {
+      const status = await send(ctx, fileName, { root: path.resolve('public') });
+      await next();
+    } catch (e) {
+      ctx.body = e;
+    }
   },
 
 };
