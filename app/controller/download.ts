@@ -17,8 +17,8 @@ export default {
     checkParams(ctx.request.query);
 
     const fileName = ctx.request.query.fileName;
-    ctx.attachment(fileName);
     try {
+      ctx.attachment(fileName);
       const status = await send(ctx, fileName, { root: path.resolve(__dirname, '../public') });
       await next();
     } catch (e) {
