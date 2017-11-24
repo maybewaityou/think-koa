@@ -5,6 +5,7 @@
  * description:
  *
  */
+import * as fs from 'fs';
 import * as Koa from 'koa';
 import * as send from 'koa-send';
 import * as path from 'path';
@@ -18,9 +19,16 @@ export default {
 
     const params = ctx.request.query;
     const fileName = params.fileName;
+    const rootPath = path.resolve(__dirname, '../public');
+    const filePath = `${rootPath}/${fileName}`;
+
+    if (!fs.existsSync(filePath)) {
+      throwException('file not found', 'no such file on the server', { location: __filename });
+    }
+
     ctx.attachment(fileName);
     try {
-      const status = await send(ctx, fileName, { root: path.resolve(__dirname, '../public') });
+      const status = await send(ctx, fileName, { root: rootPath });
       await next();
     } catch (e) {
       throwException('download error', 'unknown exception', { location: __filename, origin: e });
