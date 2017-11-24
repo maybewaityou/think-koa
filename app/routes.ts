@@ -26,6 +26,6 @@ const router = new Router({
 router
   .get('/index', App.index)
   .get('/checkForUpdates', App.checkForUpdates)
-  .post('/download', Download.download);
+  .get('/download', Download.download);
 
 export default router;
