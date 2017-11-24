@@ -14,21 +14,12 @@ import { throwException } from '../utility/error-utility';
 export default {
 
   async download(ctx: Koa.Context, next: () => Promise<any>) {
-    /* 校验参数 */
     checkParams(ctx.request.query);
 
-    const params = ctx.request.query;
-    const fileName = params.fileName;
-    const rootPath = path.resolve(__dirname, '../public');
-    const filePath = `${rootPath}/${fileName}`;
-
-    if (!fs.existsSync(filePath)) {
-      throwException('params exception', `no such file on the server, ${fileName} is not exist`, { location: __filename });
-    }
-
+    const fileName = ctx.request.query.fileName;
     ctx.attachment(fileName);
     try {
-      const status = await send(ctx, fileName, { root: rootPath });
+      const status = await send(ctx, fileName, { root: path.resolve(__dirname, '../public') });
       await next();
     } catch (e) {
       throwException('download error', 'unknown exception', { location: __filename, origin: e });
@@ -37,12 +28,23 @@ export default {
 
 };
 
+/**
+ * 校验参数
+ */
 function checkParams(params: any) {
   const fileName: string = params.fileName;
   const platform: string = params.platform;
+  const rootPath = path.resolve(__dirname, '../public');
+  const filePath = `${rootPath}/${fileName}`;
+
   if (!fileName) {
     throwException('params exception', '\'fileName\' in params is invalid', { location: __filename });
   } else if (!platform || (platform.toLowerCase() !== 'ios' && platform.toLowerCase() !== 'android')) {
     throwException('params exception', '\'platform\' in params is invalid', { location: __filename });
   }
+
+  if (!fs.existsSync(filePath)) {
+    throwException('params exception', `no such file on the server, ${fileName} is not exist`, { location: __filename });
+  }
+
 }
