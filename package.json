@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha",
     "watch": "tsc -w",
-    "start": "nodemon --watch 'src/**/*' -e ts,tsx --exec 'ts-node' ./src/index.ts"
+    "start": "nodemon --watch 'app/**/*' -e ts,tsx --exec 'ts-node' ./app/index.ts"
   },
   "repository": {
     "type": "git",
