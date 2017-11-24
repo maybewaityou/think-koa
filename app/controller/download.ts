@@ -9,6 +9,7 @@ import * as fs from 'fs';
 import * as Koa from 'koa';
 import * as send from 'koa-send';
 import * as path from 'path';
+import { platformMap } from '../data-map/index';
 import { throwError, throwException } from '../utility/error-utility';
 
 export default {
@@ -39,7 +40,7 @@ function checkParams(params: any) {
 
   if (!fileName) {
     throwError('0001', { location: __filename });
-  } else if (!platform || (platform.toLowerCase() !== 'ios' && platform.toLowerCase() !== 'android')) {
+  } else if (!platform || (platform.toLowerCase() !== platformMap.ios && platform.toLowerCase() !== platformMap.android)) {
     throwError('0002', { location: __filename });
   }
 

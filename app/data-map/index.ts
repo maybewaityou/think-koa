@@ -7,3 +7,4 @@
  */
 
 export { default as errorMap } from './error-map';
+export { default as platformMap } from './platform-map';
