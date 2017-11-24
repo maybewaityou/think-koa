@@ -14,7 +14,7 @@ export default {
   async download(ctx: Koa.Context, next: () => Promise<any>) {
     const fileName = 'test.json';
     ctx.attachment(fileName);
-    const filePath = await send(ctx, fileName, { root: path.resolve('public') });
+    await send(ctx, fileName, { root: path.resolve('public') });
     await next();
   },
 
