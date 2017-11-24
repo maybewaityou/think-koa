@@ -16,7 +16,6 @@ import * as views from 'koa-views';
 import * as path from 'path';
 
 import cors from './middleware/cors';
-import errorHandler from './middleware/onerror';
 import Exception from './model/exception';
 import router from './routes';
 
@@ -24,7 +23,6 @@ const app = new Koa();
 app.keys = ['think-koa'];
 
 // error handler
-// errorHandler(app);
 app.use(error({ format: (err: Exception) => err.description }));
 
 // middlewares
