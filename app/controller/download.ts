@@ -12,6 +12,8 @@ import * as path from 'path';
 export default {
 
   async download(ctx: Koa.Context, next: () => Promise<any>) {
+    checkParams(ctx);
+
     const fileName = ctx.request.body.fileName;
     ctx.attachment(fileName);
     try {
@@ -23,3 +25,10 @@ export default {
   },
 
 };
+
+function checkParams(ctx: Koa.Context) {
+  const fileName = ctx.request.body.fileName;
+  if (!fileName) {
+    ctx.throw(400, 'fileName is empty');
+  }
+}
