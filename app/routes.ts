@@ -26,6 +26,7 @@ const router = new Router({
 router
   .get('/index', App.index)
   .get('/checkForUpdates', App.checkForUpdates)
+  // http://localhost:9999/server/download?fileName=test.json&platform=android
   .get('/download', Download.download);
 
 export default router;
