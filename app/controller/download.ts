@@ -23,7 +23,7 @@ export default {
     const filePath = `${rootPath}/${fileName}`;
 
     if (!fs.existsSync(filePath)) {
-      throwException('file not found', 'no such file on the server', { location: __filename });
+      throwException('params exception', `no such file on the server, ${fileName} is not exist`, { location: __filename });
     }
 
     ctx.attachment(fileName);
@@ -41,8 +41,8 @@ function checkParams(params: any) {
   const fileName: string = params.fileName;
   const platform: string = params.platform;
   if (!fileName) {
-    throwException('params error', '\'fileName\' in params is invalid', { location: __filename });
+    throwException('params exception', '\'fileName\' in params is invalid', { location: __filename });
   } else if (!platform || (platform.toLowerCase() !== 'ios' && platform.toLowerCase() !== 'android')) {
-    throwException('params error', '\'platform\' in params is invalid', { location: __filename });
+    throwException('params exception', '\'platform\' in params is invalid', { location: __filename });
   }
 }
