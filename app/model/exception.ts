@@ -12,6 +12,8 @@ export interface IExtra {
   origin?: Error;
   /* 报错位置 */
   location?: string;
+  /* 报错详细信息 */
+  detailsMessage?: string;
 
 }
 

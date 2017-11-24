@@ -9,7 +9,7 @@ import * as fs from 'fs';
 import * as Koa from 'koa';
 import * as send from 'koa-send';
 import * as path from 'path';
-import { throwException } from '../utility/error-utility';
+import { throwError, throwException } from '../utility/error-utility';
 
 export default {
 
@@ -22,7 +22,7 @@ export default {
       const status = await send(ctx, fileName, { root: path.resolve(__dirname, '../public') });
       await next();
     } catch (e) {
-      throwException('download error', 'unknown exception', { location: __filename, origin: e });
+      throwError('0004', { location: __filename, origin: e });
     }
   },
 
@@ -38,13 +38,13 @@ function checkParams(params: any) {
   const filePath = `${rootPath}/${fileName}`;
 
   if (!fileName) {
-    throwException('params exception', '\'fileName\' in params is invalid', { location: __filename });
+    throwError('0001', { location: __filename });
   } else if (!platform || (platform.toLowerCase() !== 'ios' && platform.toLowerCase() !== 'android')) {
-    throwException('params exception', '\'platform\' in params is invalid', { location: __filename });
+    throwError('0002', { location: __filename });
   }
 
   if (!fs.existsSync(filePath)) {
-    throwException('params exception', `no such file on the server, ${fileName} is not exist`, { location: __filename });
+    throwError(`0003`, { location: __filename, detailsMessage: `${fileName} is not exist.` });
   }
 
 }
