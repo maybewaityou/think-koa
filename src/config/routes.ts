@@ -23,5 +23,6 @@ const router = new Router({
 
 // RESTful
 router.get('/index', App.index);
+router.get('/checkForUpdates', App.checkForUpdates);
 
 export default router;
