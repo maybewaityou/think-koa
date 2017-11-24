@@ -9,8 +9,8 @@ import * as bodyParser from 'koa-bodyparser';
 // import graphqlHTTP from 'koa-graphql';
 import * as Router from 'koa-router';
 
-import App from '../controllers/app';
-import Download from '../controllers/download';
+import App from './controller/app';
+import Download from './controller/download';
 
 const router = new Router({
   prefix: '/server',

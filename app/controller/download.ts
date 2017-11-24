@@ -15,7 +15,7 @@ export default {
     const fileName = ctx.request.body.fileName;
     ctx.attachment(fileName);
     try {
-      const status = await send(ctx, fileName, { root: path.resolve('public') });
+      const status = await send(ctx, fileName, { root: path.resolve(__dirname, '../public') });
       await next();
     } catch (e) {
       ctx.body = e;

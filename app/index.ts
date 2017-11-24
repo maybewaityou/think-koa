@@ -14,9 +14,9 @@ import * as staticRes from 'koa-static';
 import * as views from 'koa-views';
 import * as path from 'path';
 
-import router from './config/routes';
 import cors from './middleware/cors';
 import errorHandler from './middleware/onerror';
+import router from './routes';
 
 const app = new Koa();
 app.keys = ['think-koa'];
@@ -33,9 +33,9 @@ app.use(bodyParser({
 }));
 app.use(json());
 // resource
-app.use(staticRes(path.resolve(__dirname, '../public')));
+app.use(staticRes(path.resolve(__dirname, './public')));
 // template
-app.use(views(path.resolve(__dirname, '../views'), {
+app.use(views(path.resolve(__dirname, './views'), {
   extension: 'pug',
 }));
 // logger
