@@ -16,6 +16,7 @@ import * as views from 'koa-views';
 import * as path from 'path';
 
 import cors from './middleware/cors';
+import uploader from './middleware/uploader';
 import Exception from './model/exception';
 import router from './routes';
 
@@ -49,5 +50,8 @@ app.use(async (ctx: Koa.Context, next: () => Promise<any>) => {
 // routes
 app.use(router.routes());
 app.use(router.allowedMethods());
+
+// upload
+app.use(uploader());
 
 app.listen(9999);
