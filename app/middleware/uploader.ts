@@ -12,15 +12,15 @@ import * as path from 'path';
 
 export default () => {
   return async (ctx: Koa.Context, next: () => Promise<any>) => {
-   // ignore non-POSTs || files is undefined
-   if ('POST' !== ctx.method || !ctx.request.body.files) { return await next(); }
+    // ignore non-POSTs || files is undefined
+    if ('POST' !== ctx.method || !ctx.request.body.files) { return await next(); }
 
-   const file = ctx.request.body.files.file;
-   const reader = fs.createReadStream(file.path);
-   const stream = fs.createWriteStream(path.join(os.tmpdir(), Math.random().toString()));
-   reader.pipe(stream);
-   console.log('uploading %s -> %s', file.name, stream.path);
+    const file = ctx.request.body.files.file;
+    const reader = fs.createReadStream(file.path);
+    const stream = fs.createWriteStream(path.join(os.tmpdir(), Math.random().toString()));
+    reader.pipe(stream);
+    console.log('uploading %s -> %s', file.name, stream.path);
 
-   ctx.redirect('/');
+    ctx.redirect('/');
  };
 };
