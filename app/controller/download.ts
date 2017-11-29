@@ -36,7 +36,7 @@ function checkParams(params: any) {
   const fileName: string = params.fileName;
   const platform: string = params.platform;
   const rootPath = path.resolve(__dirname, '../public');
-  const filePath = `${rootPath}/${fileName}`;
+  const filePath = `${rootPath}/jsbundle/${platform}/${fileName}`;
 
   if (!fileName) {
     throwError('0001', { location: __filename });
