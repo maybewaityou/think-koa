@@ -38,6 +38,8 @@ function checkParams(params: any) {
   const rootPath = path.resolve(__dirname, '../public');
   const filePath = `${rootPath}/jsbundle/${platform}/${fileName}`;
 
+  // TODO 添加逻辑, 判断下载 全量包/增量包
+
   if (!fileName) {
     throwError('0001', { location: __filename });
   } else if (!platform || (platform.toLowerCase() !== platformMap.ios && platform.toLowerCase() !== platformMap.android)) {
