@@ -22,7 +22,7 @@ export default {
     const platform = ctx.request.query.platform;
     const isIncrementalPacket = ctx.request.query.isIncrementalPacket;
     const rootPath = path.resolve(__dirname, '../public');
-    const fileFolderName = isIncrementalPacket ? 'incremental-packet' : 'full-package';
+    const fileFolderName = isIncrementalPacket === 'true' ? 'incremental-packet' : 'full-package';
     const bundleFolder = `${rootPath}/jsbundle/${platform}/${fileFolderName}`;
 
     console.log(`== bundleFolder ===>>>> ${bundleFolder}`);
@@ -44,8 +44,10 @@ export default {
 function checkParams(params: any) {
   const fileName: string = params.fileName;
   const platform: string = params.platform;
+  const isIncrementalPacket = params.isIncrementalPacket;
+  const fileFolderName = isIncrementalPacket === 'true' ? 'incremental-packet' : 'full-package';
   const rootPath = path.resolve(__dirname, '../public');
-  const filePath = `${rootPath}/jsbundle/${platform}/${fileName}`;
+  const filePath = `${rootPath}/jsbundle/${platform}/${fileFolderName}`;
 
   if (!fileName) {
     throwError('0001', { location: __filename });
