@@ -18,12 +18,15 @@ export default {
     checkParams(ctx.request.query);
 
     const fileName = ctx.request.query.fileName;
+    const platform: string = ctx.request.query.platform;
+    const rootPath = path.resolve(__dirname, '../public');
+    const fileFolder = `${rootPath}/jsbundle/${platform}/`;
 
     // TODO 添加逻辑, 判断下载 全量包/增量包
 
     try {
       ctx.attachment(fileName);
-      const status = await send(ctx, fileName, { root: path.resolve(__dirname, '../public') });
+      const status = await send(ctx, fileName, { root: fileFolder });
       await next();
     } catch (e) {
       throwError('0004', { location: __filename, origin: e });
