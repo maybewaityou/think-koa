@@ -25,8 +25,6 @@ export default {
     const fileFolderName = isIncrementalPacket === 'true' ? 'incremental-packet' : 'full-package';
     const bundleFolder = `${rootPath}/jsbundle/${platform}/${fileFolderName}`;
 
-    console.log(`== bundleFolder ===>>>> ${bundleFolder}`);
-
     try {
       ctx.attachment(fileName);
       const status = await send(ctx, fileName, { root: bundleFolder });
