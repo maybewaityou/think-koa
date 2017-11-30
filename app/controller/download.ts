@@ -18,6 +18,9 @@ export default {
     checkParams(ctx.request.query);
 
     const fileName = ctx.request.query.fileName;
+
+    // TODO 添加逻辑, 判断下载 全量包/增量包
+
     try {
       ctx.attachment(fileName);
       const status = await send(ctx, fileName, { root: path.resolve(__dirname, '../public') });
@@ -37,8 +40,6 @@ function checkParams(params: any) {
   const platform: string = params.platform;
   const rootPath = path.resolve(__dirname, '../public');
   const filePath = `${rootPath}/jsbundle/${platform}/${fileName}`;
-
-  // TODO 添加逻辑, 判断下载 全量包/增量包
 
   if (!fileName) {
     throwError('0001', { location: __filename });
