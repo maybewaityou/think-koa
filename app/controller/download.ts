@@ -17,16 +17,19 @@ export default {
   async download(ctx: Koa.Context, next: () => Promise<any>) {
     checkParams(ctx.request.query);
 
+    // 判断下载 全量包/增量包
     const fileName = ctx.request.query.fileName;
-    const platform: string = ctx.request.query.platform;
+    const platform = ctx.request.query.platform;
+    const isIncrementalPacket = ctx.request.query.isIncrementalPacket;
     const rootPath = path.resolve(__dirname, '../public');
-    const fileFolder = `${rootPath}/jsbundle/${platform}/`;
+    const fileFolderName = isIncrementalPacket ? 'incremental-packet' : 'full-package';
+    const bundleFolder = `${rootPath}/jsbundle/${platform}/${fileFolderName}`;
 
-    // TODO 添加逻辑, 判断下载 全量包/增量包
+    console.log(`== bundleFolder ===>>>> ${bundleFolder}`);
 
     try {
       ctx.attachment(fileName);
-      const status = await send(ctx, fileName, { root: fileFolder });
+      const status = await send(ctx, fileName, { root: bundleFolder });
       await next();
     } catch (e) {
       throwError('0004', { location: __filename, origin: e });
