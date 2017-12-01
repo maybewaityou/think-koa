@@ -20,11 +20,11 @@ export default {
     // 判断下载 全量包/增量包
     const fileName = ctx.request.query.fileName;
     const platform = ctx.request.query.platform;
-    const moduleName = ctx.request.query.moduleName;
+    const moduleFolder = ctx.request.query.moduleFolder;
     const isIncrementalPacket = ctx.request.query.isIncrementalPacket;
     const rootPath = path.resolve(__dirname, '../public');
     const fileFolderName = isIncrementalPacket === 'true' ? 'incremental-packet' : 'full-package';
-    const bundleFolder = `${rootPath}/jsbundle/${platform}/${moduleName}/${fileFolderName}`;
+    const bundleFolder = `${rootPath}/jsbundle/${platform}/${moduleFolder}/${fileFolderName}`;
 
     try {
       ctx.attachment(fileName);
@@ -43,11 +43,11 @@ export default {
 function checkParams(params: any) {
   const fileName: string = params.fileName;
   const platform: string = params.platform;
-  const moduleName: string = params.moduleName;
+  const moduleFolder: string = params.moduleFolder;
   const isIncrementalPacket = params.isIncrementalPacket;
   const fileFolderName = isIncrementalPacket === 'true' ? 'incremental-packet' : 'full-package';
   const rootPath = path.resolve(__dirname, '../public');
-  const filePath = `${rootPath}/jsbundle/${platform}/${moduleName}/${fileFolderName}`;
+  const filePath = `${rootPath}/jsbundle/${platform}/${moduleFolder}/${fileFolderName}`;
 
   if (!fileName) {
     throwError('0001', { location: __filename });
