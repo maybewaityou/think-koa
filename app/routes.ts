@@ -26,7 +26,7 @@ const router = new Router({
 router
   .get('/index', App.index)
   .get('/checkForUpdates', App.checkForUpdates)
-  // http://localhost:9999/server/download?fileName=test.json&platform=android
+  // http://localhost:9999/server/download?fileName=bundle.zip&platform=ios&moduleFolder=main&isIncrementalPacket=true
   .get('/download', Download.download);
 
 export default router;
