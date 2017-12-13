@@ -11,7 +11,7 @@ export default {
 
   async index(ctx: Koa.Context, next: () => Promise<any>) {
     await ctx.render('index', {
-      title: 'Hello Koa 2 !',
+      title: 'Hello Koa 2!',
     });
     await next();
   },
