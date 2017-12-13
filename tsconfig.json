@@ -9,7 +9,7 @@
     "module": "commonjs",
     "jsx": "react",
     "outDir": "./build/",
-    "rootDir": "app",
+    "rootDir": "server",
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": true,
     "experimentalDecorators": true,
@@ -29,7 +29,7 @@
     ]
   },
   "include": [
-    "./app/**/*"
+    "./server/**/*"
   ],
   "exclude": [
     "dist",
