@@ -11,7 +11,7 @@ import * as json from 'koa-json';
 import * as error from 'koa-json-error';
 import * as logger from 'koa-logger';
 import * as session from 'koa-session';
-import * as staticRes from 'koa-static';
+import * as serve from 'koa-static';
 import * as views from 'koa-views';
 import * as path from 'path';
 
@@ -34,7 +34,7 @@ app.use(bodyParser({
 }));
 app.use(json());
 // resource
-app.use(staticRes(path.resolve(__dirname, './public')));
+app.use(serve(path.resolve(__dirname, './public')));
 // template
 app.use(views(path.resolve(__dirname, './views'), {
   extension: 'pug',
