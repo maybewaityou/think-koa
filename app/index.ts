@@ -51,7 +51,6 @@ app.use(async (ctx: Koa.Context, next: () => Promise<any>) => {
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-// upload
 app.use(uploader());
 
 app.listen(9999);
