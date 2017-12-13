@@ -25,7 +25,6 @@ app.keys = ['think-koa'];
 
 // error handler
 app.use(error({ format: (err: Exception) => err.description }));
-
 // middlewares
 app.use(logger());
 app.use(session(app));
