@@ -16,12 +16,4 @@ export default {
     await next();
   },
 
-  async checkForUpdates(ctx: Koa.Context, next: () => Promise<any>) {
-    ctx.body = {
-      module_0_version: '1.0',
-      module_1_version: '1.0',
-    };
-    await next();
-  },
-
 };

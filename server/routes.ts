@@ -10,7 +10,7 @@ import * as bodyParser from 'koa-bodyparser';
 import * as Router from 'koa-router';
 
 import App from './controller/app';
-import Download from './controller/download';
+import HotUpdate from './controller/hot-update';
 
 const router = new Router({
   prefix: '/server',
@@ -25,8 +25,8 @@ const router = new Router({
 // RESTful
 router
   .get('/index', App.index)
-  .get('/checkForUpdates', App.checkForUpdates)
+  .get('/checkForUpdates', HotUpdate.checkForUpdates)
   // http://localhost:9999/server/download?fileName=bundle.zip&platform=ios&moduleFolder=main&isIncrementalPacket=true
-  .get('/download', Download.download);
+  .get('/download', HotUpdate.download);
 
 export default router;
