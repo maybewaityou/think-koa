@@ -5,15 +5,15 @@
  * description:
  *
  */
-import * as Koa from 'koa';
-import * as bodyParser from 'koa-bodyparser';
-import * as json from 'koa-json';
-import * as error from 'koa-json-error';
-import * as logger from 'koa-logger';
-import * as session from 'koa-session';
-import * as serve from 'koa-static';
-import * as views from 'koa-views';
-import * as path from 'path';
+import Koa from 'koa';
+import bodyParser from 'koa-bodyparser';
+import json from 'koa-json';
+import error from 'koa-json-error';
+import logger from 'koa-logger';
+import session from 'koa-session';
+import serve from 'koa-static';
+import views from 'koa-views';
+import path from 'path';
 
 import cors from './middleware/cors';
 import uploader from './middleware/uploader';
