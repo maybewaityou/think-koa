@@ -25,7 +25,6 @@
   "dependencies": {
     "koa": "^2.4.1",
     "koa-bodyparser": "^4.2.0",
-    "koa-cors": "0.0.16",
     "koa-json": "^2.0.2",
     "koa-json-error": "^3.1.2",
     "koa-logger": "^3.1.0",
@@ -35,7 +34,7 @@
     "koa-session": "^5.5.1",
     "koa-static": "^4.0.2",
     "koa-views": "^6.1.2",
-    "mario-utilities": "0.0.29",
+    "mario-utilities": "^0.0.37",
     "pug": "^2.0.0-rc.4",
     "request": "^2.83.0",
     "request-promise-native": "^1.0.5",
