@@ -54,7 +54,7 @@ app.use(router.allowedMethods());
 app.use(uploader());
 // proxy
 app.use(proxy({
-  host: 'http://10.240.90.212:8088',
+  host: 'http://10.240.81.230:7001',
 }));
 
 app.listen(9999);
