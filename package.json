@@ -37,6 +37,8 @@
     "koa-views": "^6.1.2",
     "mario-utilities": "0.0.29",
     "pug": "^2.0.0-rc.4",
+    "request": "^2.83.0",
+    "request-promise-native": "^1.0.5",
     "rxjs": "^5.5.2"
   },
   "devDependencies": {
@@ -50,6 +52,7 @@
     "@types/koa-session": "^3.0.6",
     "@types/koa-static": "^3.0.2",
     "@types/koa-views": "^2.0.3",
+    "@types/request-promise-native": "^1.0.10",
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "chai": "^4.1.2",

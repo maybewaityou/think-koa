@@ -16,6 +16,7 @@ import * as views from 'koa-views';
 import * as path from 'path';
 
 import cors from './middleware/cors';
+import proxy from './middleware/proxy';
 import uploader from './middleware/uploader';
 import Exception from './model/exception';
 import router from './routes';
@@ -51,5 +52,9 @@ app.use(router.routes());
 app.use(router.allowedMethods());
 // upload
 app.use(uploader());
+// proxy
+app.use(proxy({
+  host: 'http://10.240.90.212:8088',
+}));
 
 app.listen(9999);
